@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="getlicense" default=".help" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+    <!--
+    The build-impl.xml file imported here contains the guts of the build process. It is
+    a great idea to read that file to understand how the process works, but it is best to
+    limit your changes to this file.
+    -->
+    <import file="${basedir}/.sencha/app/build-impl.xml"/>
+
+    <!--
+    The following targets can be provided to inject logic before and/or after key steps
+    of the build process:
+
+        The "init-local" target is used to initialize properties that may be personalized
+        for the local machine.
+
+            <target name="-before-init-local"/>
+            <target name="-after-init-local"/>
+
+        The "clean" target is used to clean build output from the build.dir.
+
+            <target name="-before-clean"/>
+            <target name="-after-clean"/>
+
+        The general "init" target is used to initialize all other properties, including
+        those provided by Sencha Cmd.
+
+            <target name="-before-init"/>
+            <target name="-after-init"/>
+
+        The "page" target performs the call to Sencha Cmd to build the 'all-classes.js' file.
+
+            <target name="-before-page"/>
+            <target name="-after-page"/>
+
+        The "build" target performs the call to Sencha Cmd to build the application.
+
+            <target name="-before-build"/>
+            <target name="-after-build"/>
+    -->
+
+    <target name="-before-init-local">
+        <get src="http://apache.rediris.es/maven/ant-tasks/2.1.3/binaries/maven-ant-tasks-2.1.3.jar" dest="${basedir}/maven-ant-tasks-2.1.3.jar" />
+        <path id="maven-ant-tasks.classpath" path="maven-ant-tasks-2.1.3.jar" />
+        <typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" classpathref="maven-ant-tasks.classpath" />
+    </target>
+
+    <target name="-after-build">
+        <property environment="env" />
+        <zip destfile="${basedir}/build/getlicense-1.0-SNAPSHOT.zip" basedir="${basedir}/build/production" />
+        <artifact:deploy file="${basedir}/build/getlicense-1.0-SNAPSHOT.zip" settingsFile="${env.M2SETTINGS}">
+            <remoteRepository id="klicap-snapshots" url="http://clinker-cloud.klicap.es/nexus/content/repositories/klicap-snapshots"/>
+            <pom file="pom.xml" />
+        </artifact:deploy>
+    </target>
+
+</project>

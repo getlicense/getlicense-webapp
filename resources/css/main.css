@@ -1,0 +1,54 @@
+.getlicense .x-grid-item-selected {
+    background-image: url('../img/icons/check14.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.action-edit {
+    background: url('../img/icons/Flaticon_34022.svg') center center no-repeat;
+    background-size: 16px 16px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.action-add {
+    background: url('../img/icons/Flaticon_24115.svg') center center no-repeat;
+    background-size: 16px 16px;
+}
+
+.action-addattribute {
+    background: url('../img/icons/Flaticon_24115.svg') center center no-repeat;
+    background-size: 16px 16px;
+}
+
+.action-remove {
+    background: url('../img/icons/slightly.svg') center center no-repeat;
+    background-size: 16px 16px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.action-download {
+    background: url('../img/icons/down123.svg') center center no-repeat;
+    background-size: 16px 16px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.action-addlicensetype {
+    background: url('../img/icons/cogwheel9.svg') center center no-repeat;
+    background-size: 16px 16px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.action-editlicensedetails {
+    background: url('../img/icons/cogwheel9.svg') center center no-repeat;
+    background-size: 16px 16px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.status-warning {
+    background: url('../img/icons/warning.png') 5px 1px no-repeat;
+}
